@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://iwlpamd20oko"]
+
+[ext_resource type="Script" path="res://addons/customizableCrosshair/crosshair/crosshair.gd" id="1_nrohy"]
+
+[node name="crosshair" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nrohy")
+
+[node name="topLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+antialiased = true
+
+[node name="topLineOutline" type="Line2D" parent="topLine"]
+visible = false
+z_index = -1
+points = PackedVector2Array(0, -3, 0, -8)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+antialiased = true
+
+[node name="bottomLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+antialiased = true
+
+[node name="bottomLineOutline" type="Line2D" parent="bottomLine"]
+visible = false
+z_index = -1
+default_color = Color(0, 0, 0, 1)
+antialiased = true
+
+[node name="leftLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+antialiased = true
+
+[node name="leftLineOutline" type="Line2D" parent="leftLine"]
+visible = false
+z_index = -1
+default_color = Color(0, 0, 0, 1)
+antialiased = true
+
+[node name="rightLine" type="Line2D" parent="."]
+unique_name_in_owner = true
+antialiased = true
+
+[node name="rightLineOutline" type="Line2D" parent="rightLine"]
+visible = false
+z_index = -1
+default_color = Color(0, 0, 0, 1)
+antialiased = true
