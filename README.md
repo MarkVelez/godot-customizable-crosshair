@@ -23,6 +23,7 @@ Adding the crosshair to your game is simple and can be done with two easy steps.
 - Lastly you want to set the `Anchor Preset` under `Layout` to `Center` on the instance of the crosshair scene.
 
 After these steps are performed the crosshair can be customized within the editor.
+![Crosshair Settings](media/crosshairSettings.jpg)
 
 *Note that the crosshair will not be visible inside of the editor unless the `@tool` at the top of the script is uncommented. To update the looks of the crosshair inside of the editor, simply toggle the visibility of the crosshair scene.*
 
