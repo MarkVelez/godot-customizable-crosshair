@@ -5,13 +5,13 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svgu8"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eund3"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hweoo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t884e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jhaf3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqjww"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3e3j"]
 
@@ -40,7 +40,6 @@ size_flags_vertical = 3
 
 [node name="settings" type="PanelContainer" parent="CanvasLayer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 2
 
@@ -62,124 +61,74 @@ theme_override_constants/margin_right = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="crosshairSettingsTitle" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Cursor settings"
+text = "Crosshair Settings"
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="crosshairSettings" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 8
 
-[node name="labels" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="thickness" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings"]
 layout_mode = 2
-theme_override_constants/separation = 16
+size_flags_vertical = 4
 
-[node name="thickness" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/thickness"]
+custom_minimum_size = Vector2(196, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Thickness"
 
-[node name="size" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
+[node name="thicknessSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/thickness"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Size
-"
+size_flags_vertical = 4
+step = 1.0
 
-[node name="gap" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
+[node name="thicknessValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/thickness"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+custom_arrow_step = 1.0
+
+[node name="size" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings"]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/size"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Size"
+
+[node name="sizeSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/size"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+step = 1.0
+
+[node name="sizeValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/size"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+custom_arrow_step = 1.0
+
+[node name="gap" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/gap"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
 text = "Gap"
 
-[node name="color" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Color
-"
-
-[node name="dot" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Dot
-"
-
-[node name="dynamic" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Dynamic
-"
-
-[node name="dynamicMax" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Dynamic max
-"
-
-[node name="outline" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Outline
-"
-
-[node name="outlineThickness" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Outline thickness"
-
-[node name="tStyle" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/labels"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "T style"
-
-[node name="settings" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="thickness" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="thicknessSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/thickness"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 16)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-step = 1.0
-
-[node name="thicknessValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/thickness"]
-unique_name_in_owner = true
-layout_mode = 2
-alignment = 1
-custom_arrow_step = 1.0
-
-[node name="size" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="sizeSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/size"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 16)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-step = 1.0
-
-[node name="sizeValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/size"]
-unique_name_in_owner = true
-layout_mode = 2
-alignment = 1
-custom_arrow_step = 1.0
-
-[node name="gap" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="gapSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/gap"]
+[node name="gapSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/gap"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
@@ -188,65 +137,121 @@ size_flags_vertical = 4
 min_value = -100.0
 step = 1.0
 
-[node name="gapValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/gap"]
+[node name="gapValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/gap"]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = -100.0
 alignment = 1
 custom_arrow_step = 1.0
 
-[node name="color" type="ColorPickerButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
+[node name="color" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/color"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Color"
+
+[node name="color" type="ColorPickerButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/color"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/focus = SubResource("StyleBoxEmpty_svgu8")
 text = "
 "
 
-[node name="dot" type="CheckButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
+[node name="spacer" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eund3")
+
+[node name="styleSettingsTitle" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Style Settings"
+
+[node name="HSeparator5" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="styleSettings" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="lineStyle" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/lineStyle"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Line Style"
+
+[node name="lineStyle" type="OptionButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/lineStyle"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+item_count = 3
+selected = 0
+popup/item_0/text = "Line"
+popup/item_0/id = 0
+popup/item_1/text = "Arrow"
+popup/item_1/id = 1
+popup/item_2/text = "Inverse Arrow"
+popup/item_2/id = 2
+
+[node name="dot" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/dot"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Dot"
+
+[node name="dot" type="CheckButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/dot"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hweoo")
 
-[node name="dynamic" type="CheckButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
+[node name="tStyle" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/tStyle"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "T Style"
+
+[node name="tStyle" type="CheckButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/tStyle"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t884e")
 
-[node name="dynamicMax" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
+[node name="outline" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
 
-[node name="dynamicMaxSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/dynamicMax"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 16)
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/outline"]
+custom_minimum_size = Vector2(196, 0)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-step = 1.0
+text = "Outline"
 
-[node name="dynamicMaxValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/dynamicMax"]
-unique_name_in_owner = true
-layout_mode = 2
-alignment = 1
-custom_arrow_step = 1.0
-
-[node name="outline" type="CheckButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
+[node name="outline" type="CheckButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/outline"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jhaf3")
 
-[node name="outlineThickness" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
+[node name="outlineThickness" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="outlineThicknessSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/outlineThickness"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/outlineThickness"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Outline Thickness"
+
+[node name="outlineThicknessSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/outlineThickness"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
@@ -255,81 +260,65 @@ size_flags_vertical = 4
 max_value = 3.0
 step = 1.0
 
-[node name="outlineThicknessValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/outlineThickness"]
+[node name="outlineThicknessValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/outlineThickness"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 3.0
 alignment = 1
 custom_arrow_step = 1.0
 
-[node name="tStyle" type="CheckButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings"]
+[node name="horizontalLines" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLines"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Horizontal Lines"
+
+[node name="horizontalLines" type="CheckButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLines"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qqjww")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t884e")
 
-[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Weapon settings"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="presetOptions" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="semi" type="Button" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/presetOptions"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/focus = SubResource("StyleBoxEmpty_u3e3j")
-text = "Semi-Auto"
-
-[node name="auto" type="Button" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/presetOptions"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ng7tt")
-text = "Full-Auto"
-
-[node name="configSettings" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="labels" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings"]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="staticOffset" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/labels"]
+[node name="horizontalLinesPosition" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Static Offset"
+size_flags_vertical = 4
 
-[node name="dynamicOffset" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/labels"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesPosition"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Horizontal Lines Position"
+
+[node name="horizontalLinesPositionSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesPosition"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Dynamic Offset"
+size_flags_vertical = 4
+min_value = -100.0
+step = 1.0
 
-[node name="recoverySpeed" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/labels"]
+[node name="horizontalLinesPositionValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesPosition"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
-text = "Recovery Speed"
+min_value = -100.0
+alignment = 1
+custom_arrow_step = 1.0
 
-[node name="rpm" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/labels"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "RPM"
-
-[node name="settings" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="staticOffset" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings"]
+[node name="horizontalLinesThickness" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="staticOffsetSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/staticOffset"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesThickness"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Horizontal Lines
+Thickness"
+
+[node name="horizontalLinesThicknessSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesThickness"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
@@ -337,17 +326,155 @@ size_flags_horizontal = 0
 size_flags_vertical = 4
 step = 1.0
 
-[node name="staticOffsetValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/staticOffset"]
+[node name="horizontalLinesThicknessValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesThickness"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 4
 alignment = 1
+custom_arrow_step = 1.0
 
-[node name="dynamicOffset" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings"]
+[node name="horizontalLinesLength" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="dynamicOffsetSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/dynamicOffset"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesLength"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Horizontal Lines Length"
+
+[node name="horizontalLinesLengthSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesLength"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+step = 1.0
+
+[node name="horizontalLinesLengthValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesLength"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+custom_arrow_step = 1.0
+
+[node name="spacer2" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eund3")
+
+[node name="optionalSettingsTitle" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Optional settings
+"
+
+[node name="HSeparator4" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="optionalSettings" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="dynamic" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings/dynamic"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Dynamic"
+
+[node name="dynamic" type="CheckButton" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings/dynamic"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t884e")
+
+[node name="dynamicMax" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings/dynamicMax"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Dynamic Max"
+
+[node name="dynamicMaxSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings/dynamicMax"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+step = 1.0
+
+[node name="dynamicMaxValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings/dynamicMax"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+custom_arrow_step = 1.0
+
+[node name="spacer3" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eund3")
+
+[node name="weaponSettingsTitle" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Weapon settings"
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="weaponSettings" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="presetOptions" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings"]
+layout_mode = 2
+
+[node name="semi" type="Button" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/presetOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3e3j")
+text = "Semi-Auto"
+
+[node name="auto" type="Button" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/presetOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ng7tt")
+text = "Full-Auto"
+
+[node name="staticOffset" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/staticOffset"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Static Offset"
+
+[node name="staticOffsetSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/staticOffset"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+step = 1.0
+
+[node name="staticOffsetValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/staticOffset"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="dynamicOffset" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/dynamicOffset"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Dynamic Offset"
+
+[node name="dynamicOffsetSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/dynamicOffset"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
@@ -356,19 +483,24 @@ size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 
-[node name="dynamicOffsetValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/dynamicOffset"]
+[node name="dynamicOffsetValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/dynamicOffset"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 alignment = 1
 
-[node name="recoverySpeed" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings"]
+[node name="recoverySpeed" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="recoverySpeedSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/recoverySpeed"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/recoverySpeed"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Recovery Speed"
+
+[node name="recoverySpeedSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/recoverySpeed"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
@@ -377,19 +509,24 @@ size_flags_vertical = 4
 max_value = 3.0
 step = 0.05
 
-[node name="recoverySpeedValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/recoverySpeed"]
+[node name="recoverySpeedValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/recoverySpeed"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 3.0
 step = 0.05
 alignment = 1
 
-[node name="rpm" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings"]
+[node name="rpm" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="rpmSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/rpm"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/rpm"]
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "RPM"
+
+[node name="rpmSlider" type="HScrollBar" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/rpm"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
@@ -398,7 +535,7 @@ size_flags_vertical = 4
 max_value = 1000.0
 step = 1.0
 
-[node name="rpmValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/rpm"]
+[node name="rpmValue" type="SpinBox" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/rpm"]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1000.0
@@ -406,43 +543,47 @@ alignment = 1
 custom_arrow_step = 1.0
 
 [node name="crosshairArea" type="CenterContainer" parent="CanvasLayer/HBoxContainer"]
-custom_minimum_size = Vector2(678, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
 
 [node name="crosshair" parent="CanvasLayer/HBoxContainer/crosshairArea" instance=ExtResource("2_vsqu2")]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-crosshairThickness = 2.0
-crosshairSize = 5.0
-crosshairGap = 3.0
-crosshairColor = Color(0, 1, 0, 1)
 
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/thickness/thicknessSlider" to="." method="_on_thickness_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/thickness/thicknessValue" to="." method="_on_thickness_value_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/size/sizeSlider" to="." method="_on_size_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/size/sizeValue" to="." method="_on_size_value_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/gap/gapSlider" to="." method="_on_gap_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/gap/gapValue" to="." method="_on_gap_value_value_changed"]
-[connection signal="color_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/color" to="." method="_on_color_color_changed"]
-[connection signal="toggled" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/dot" to="." method="_on_dot_toggled"]
-[connection signal="toggled" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/dynamic" to="." method="_on_dynamic_toggled"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/dynamicMax/dynamicMaxSlider" to="." method="_on_dynamic_max_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/dynamicMax/dynamicMaxValue" to="." method="_on_dynamic_max_value_value_changed"]
-[connection signal="toggled" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/outline" to="." method="_on_outline_toggled"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/outlineThickness/outlineThicknessSlider" to="." method="_on_outline_thickness_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/outlineThickness/outlineThicknessValue" to="." method="_on_outline_thickness_value_value_changed"]
-[connection signal="toggled" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/HBoxContainer/settings/tStyle" to="." method="_on_t_style_toggled"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/presetOptions/semi" to="." method="_on_semi_pressed"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/presetOptions/auto" to="." method="_on_auto_pressed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/staticOffset/staticOffsetSlider" to="." method="_on_static_offset_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/staticOffset/staticOffsetValue" to="." method="_on_static_offset_value_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/dynamicOffset/dynamicOffsetSlider" to="." method="_on_dynamic_offset_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/dynamicOffset/dynamicOffsetValue" to="." method="_on_dynamic_offset_value_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/recoverySpeed/recoverySpeedSlider" to="." method="_on_recovery_speed_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/recoverySpeed/recoverySpeedValue" to="." method="_on_recovery_speed_value_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/rpm/rpmSlider" to="." method="_on_rpm_slider_value_changed"]
-[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/VBoxContainer/configSettings/settings/rpm/rpmValue" to="." method="_on_rpm_value_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/thickness/thicknessSlider" to="." method="_on_thickness_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/thickness/thicknessValue" to="." method="_on_thickness_value_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/size/sizeSlider" to="." method="_on_size_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/size/sizeValue" to="." method="_on_size_value_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/gap/gapSlider" to="." method="_on_gap_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/gap/gapValue" to="." method="_on_gap_value_value_changed"]
+[connection signal="color_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairSettings/color/color" to="." method="_on_color_color_changed"]
+[connection signal="item_selected" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/lineStyle/lineStyle" to="." method="_on_line_style_item_selected"]
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/dot/dot" to="." method="_on_dot_toggled"]
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/tStyle/tStyle" to="." method="_on_t_style_toggled"]
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/outline/outline" to="." method="_on_outline_toggled"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/outlineThickness/outlineThicknessSlider" to="." method="_on_outline_thickness_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/outlineThickness/outlineThicknessValue" to="." method="_on_outline_thickness_value_value_changed"]
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLines/horizontalLines" to="." method="_on_horizontal_lines_toggled"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesPosition/horizontalLinesPositionSlider" to="." method="_on_horizontal_lines_position_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesPosition/horizontalLinesPositionValue" to="." method="_on_horizontal_lines_position_value_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesThickness/horizontalLinesThicknessSlider" to="." method="_on_horizontal_lines_thickness_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesThickness/horizontalLinesThicknessValue" to="." method="_on_horizontal_lines_thickness_value_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesLength/horizontalLinesLengthSlider" to="." method="_on_horizontal_lines_length_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/styleSettings/horizontalLinesLength/horizontalLinesLengthValue" to="." method="_on_horizontal_lines_length_value_value_changed"]
+[connection signal="toggled" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings/dynamic/dynamic" to="." method="_on_dynamic_toggled"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings/dynamicMax/dynamicMaxSlider" to="." method="_on_dynamic_max_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/optionalSettings/dynamicMax/dynamicMaxValue" to="." method="_on_dynamic_max_value_value_changed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/presetOptions/semi" to="." method="_on_semi_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/presetOptions/auto" to="." method="_on_auto_pressed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/staticOffset/staticOffsetSlider" to="." method="_on_static_offset_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/staticOffset/staticOffsetValue" to="." method="_on_static_offset_value_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/dynamicOffset/dynamicOffsetSlider" to="." method="_on_dynamic_offset_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/dynamicOffset/dynamicOffsetValue" to="." method="_on_dynamic_offset_value_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/recoverySpeed/recoverySpeedSlider" to="." method="_on_recovery_speed_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/recoverySpeed/recoverySpeedValue" to="." method="_on_recovery_speed_value_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/rpm/rpmSlider" to="." method="_on_rpm_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/rpm/rpmValue" to="." method="_on_rpm_value_value_changed"]
 [connection signal="mouse_entered" from="CanvasLayer/HBoxContainer/crosshairArea" to="." method="_on_crosshair_area_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/HBoxContainer/crosshairArea" to="." method="_on_crosshair_area_mouse_exited"]

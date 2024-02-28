@@ -19,16 +19,21 @@ var mouseInPreviewArea: bool
 
 func _ready():
 	# Assign inital values to the settings
-	%thicknessSlider.value = crosshair.crosshairThickness
-	%sizeSlider.value = crosshair.crosshairSize
-	%gapSlider.value = crosshair.crosshairGap
+	%thicknessValue.value = crosshair.crosshairThickness
+	%sizeValue.value = crosshair.crosshairSize
+	%gapValue.value = crosshair.crosshairGap
 	%color.color = crosshair.crosshairColor
 	%dot.button_pressed = crosshair.crosshairDot
 	%dynamic.button_pressed = crosshair.crosshairDynamic
-	%dynamicMaxSlider.value = crosshair.crosshairMaxDynamicOffset
+	%dynamicMaxValue.value = crosshair.crosshairMaxDynamicOffset
 	%outline.button_pressed = crosshair.crosshairOutline
-	%outlineThicknessSlider.value = crosshair.crosshairOutlineThickness
+	%outlineThicknessValue.value = crosshair.crosshairOutlineThickness
+	%lineStyle.selected = crosshair.crosshairLineStyle
 	%tStyle.button_pressed = crosshair.crosshairTStyle
+	%horizontalLines.button_pressed = crosshair.crosshairHorizontalLines
+	%horizontalLinesPositionValue.value = crosshair.crosshairHorizontalLinesPosition
+	%horizontalLinesThicknessValue.value = crosshair.crosshairHorizontalLinesThickness
+	%horizontalLinesLengthValue.value = crosshair.crosshairHorizontalLinesLength
 
 
 func _process(delta):
@@ -70,6 +75,13 @@ func shoot():
 			inaccuracy = 1.0
 		else:
 			inaccuracy += inaccuracyPerShot
+
+
+func updateWeaponConfigs():
+	%staticOffsetSlider.value = crosshair.crosshairStaticOffset
+	%dynamicOffsetSlider.value = inaccuracyPerShot
+	%recoverySpeedSlider.value = accuracyRecoverySpeed
+	%rpmSlider.value = rpm
 
 
 func _on_thickness_slider_value_changed(value):
@@ -152,11 +164,6 @@ func _on_outline_thickness_value_value_changed(value):
 	crosshair.updateCrosshair()
 
 
-func _on_t_style_toggled(toggled_on):
-	crosshair.crosshairTStyle = toggled_on
-	crosshair.updateCrosshair()
-
-
 func _on_crosshair_area_mouse_entered():
 	mouseInPreviewArea = true
 
@@ -229,8 +236,52 @@ func _on_rpm_value_value_changed(value):
 	timeBetweenShots = 60 / rpm
 
 
-func updateWeaponConfigs():
-	%staticOffsetSlider.value = crosshair.crosshairStaticOffset
-	%dynamicOffsetSlider.value = inaccuracyPerShot
-	%recoverySpeedSlider.value = accuracyRecoverySpeed
-	%rpmSlider.value = rpm
+func _on_horizontal_lines_toggled(toggled_on):
+	crosshair.crosshairHorizontalLines = toggled_on
+	crosshair.updateCrosshair()
+
+
+func _on_t_style_toggled(toggled_on):
+	crosshair.crosshairTStyle = toggled_on
+	crosshair.updateCrosshair()
+
+
+func _on_line_style_item_selected(index):
+	crosshair.crosshairLineStyle = index
+	crosshair.updateCrosshair()
+
+
+func _on_horizontal_lines_thickness_slider_value_changed(value):
+	crosshair.crosshairHorizontalLinesThickness = value
+	%horizontalLinesThicknessValue.value = value
+	crosshair.updateCrosshair()
+
+
+func _on_horizontal_lines_thickness_value_value_changed(value):
+	crosshair.crosshairHorizontalLinesThickness = value
+	%horizontalLinesThicknessSlider.value = value
+	crosshair.updateCrosshair()
+
+
+func _on_horizontal_lines_length_slider_value_changed(value):
+	crosshair.crosshairHorizontalLinesLength = value
+	%horizontalLinesLengthValue.value = value
+	crosshair.updateCrosshair()
+
+
+func _on_horizontal_lines_length_value_value_changed(value):
+	crosshair.crosshairHorizontalLinesLength = value
+	%horizontalLinesLengthSlider.value = value
+	crosshair.updateCrosshair()
+
+
+func _on_horizontal_lines_position_slider_value_changed(value):
+	crosshair.crosshairHorizontalLinesPosition = value
+	%horizontalLinesPositionValue.value = value
+	crosshair.updateCrosshair()
+
+
+func _on_horizontal_lines_position_value_value_changed(value):
+	crosshair.crosshairHorizontalLinesPosition = value
+	%horizontalLinesPositionSlider.value = value
+	crosshair.updateCrosshair()
