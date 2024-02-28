@@ -8,12 +8,14 @@ This addon provides a dynamically customizable crosshair that tries to mimic the
 **Crosshair settings**
 - Thickness
 - Size (length of the lines)
-- Gap  (distance between the middle of the screen and the starts of the lines)
+- Gap (distance between the middle of the screen and the starts of the lines)
 - Color
 - Dot in the middle of the screen
 - Dynamic crosshair movement based on customizable inputs
 - Crosshair outline with thickness adjustment
 - T-style configuration (removes the top line)
+- Extra horizontal lines
+- Different crosshair line styles
 
 ## Usage
 
