@@ -10,7 +10,7 @@ extends CenterContainer
 
 
 @export_group("Style settings")
-@export_enum("Line" ,"Arrow", "Inverse Arrow") var crosshairLineStyle: int = 0
+@export_enum("Line" ,"Arrow", "Inverse Arrow") var crosshairLineStyle: int = 0 ## List of possible styles for the crosshair lines
 @export var crosshairDot: bool ## Toggle for the middle dot
 @export var crosshairTStyle: bool ## Toggle to make the crosshair T style meaning the top line is removed.
 
@@ -43,9 +43,99 @@ var crosshairDynamicOffset: float
 # Used as a constant offset on the crosshair lines
 var crosshairStaticOffset: float
 
+# A dictionary that holds all the config values for the crosshair
+# I recommend not directly changing the values as it could cause possible issues like type mismatch
+# Use the getCrosshairSettings function instead
+var crosshairConfig: Dictionary
+
 
 func _ready() -> void:
 	updateCrosshair()
+
+
+# Checks if the received dictionary matches the crosshairConfig dictionary before overwriting it
+func validConfig(config: Dictionary) -> bool:
+	# Check if there is a size mismatch
+	if config.size() != crosshairConfig.size():
+		print("Config validation failed due to size mismatch!")
+		return false
+	
+	# Check if there are any missing entries
+	if not config.has_all(crosshairConfig.keys()):
+		print("Config validation failed due to key mismatch!")
+		return false
+	
+	# Check if there is a value type mismatch
+	for value in config:
+		if typeof(config[value]) != typeof(crosshairConfig[value]):
+			print("Config validation failed due to incorrect type for ", value, "!")
+			print("Expected ", type_string(typeof(crosshairConfig[value])), " but got ", type_string(typeof(value)))
+			return false
+	
+	return true
+
+
+# Converts the config dictionary to a JSON string
+func getConfigString() -> String:
+	var dict: Dictionary = crosshairConfig.duplicate()
+	
+	# JSON does not like Godot color values so it is converted to an array here
+	dict["color"] = [
+		dict["color"].r,
+		dict["color"].g,
+		dict["color"].b,
+		dict["color"].a
+	]
+	
+	var string = JSON.stringify(dict, "", false)
+	return string
+
+
+# Convert the JSON string form of the config to a dictionary
+func parseConfigString(configString: String) -> void:
+	var config = JSON.parse_string(configString)
+	
+	# Check if the parse failed
+	if config == null:
+		print("Incorrect config string!")
+		return
+	
+	# Convert the color value back to a proper color value
+	config["color"] = Color(
+		config["color"][0],
+		config["color"][1],
+		config["color"][2],
+		config["color"][3]
+	)
+	
+	# For some reason lineStyle has the incorrect type so there is a conversion done here to int
+	config["lineStyle"] = type_convert(config["lineStyle"], 2)
+	
+	getCrosshairSettings(config)
+
+
+# Get the crosshair config values from the config dictionary
+func getCrosshairSettings(config: Dictionary) -> void:
+	# Check if the received dictionary is correct
+	if validConfig(config):
+		crosshairThickness = config["thickness"]
+		crosshairSize = config["size"]
+		crosshairGap = config["gap"]
+		crosshairColor = config["color"]
+		crosshairLineStyle = config["lineStyle"]
+		crosshairDot = config["dot"]
+		crosshairTStyle = config["tStyle"]
+		crosshairOutline = config["outline"]
+		crosshairOutlineThickness = config["outlineThickness"]
+		crosshairHorizontalLines = config["horizontalLines"]
+		crosshairHorizontalLinesPosition = config["horizontalLinesPosition"]
+		crosshairHorizontalLinesThickness = config["horizontalLinesThickness"]
+		crosshairHorizontalLinesLength = config["horizontalLinesLength"]
+		crosshairDynamic = config["dynamic"]
+		crosshairMaxDynamicOffset = config["maxDynamicOffset"]
+		updateCrosshair()
+	else:
+		print("Invalid config!")
 
 
 # Used to update the dynamic offset of crosshair
@@ -66,6 +156,7 @@ func updateStaticOffset(amount: float) -> void:
 	updateCrosshair()
 
 
+# Select the curve for the corresponding style
 func updateLineStyle(style: int):
 	match style:
 		0:
@@ -74,6 +165,30 @@ func updateLineStyle(style: int):
 			return preload("res://addons/customizableCrosshair/crosshair/curves/arrow.tres")
 		2:
 			return preload("res://addons/customizableCrosshair/crosshair/curves/inverseArrow.tres")
+		_:
+			return null
+
+
+# Updates the values of the config dictionary
+func updateCrosshairConfig() -> void:
+	crosshairConfig = {
+		"thickness": crosshairThickness,
+		"size": crosshairSize,
+		"gap": crosshairGap,
+		"color": crosshairColor,
+		"lineStyle": crosshairLineStyle,
+		"dot": crosshairDot,
+		"tStyle": crosshairTStyle,
+		"outline": crosshairOutline,
+		"outlineThickness": crosshairOutlineThickness,
+		"horizontalLines": crosshairHorizontalLines,
+		"horizontalLinesPosition": crosshairHorizontalLinesPosition,
+		"horizontalLinesThickness": crosshairHorizontalLinesThickness,
+		"horizontalLinesLength": crosshairHorizontalLinesLength,
+		"dynamic": crosshairDynamic,
+		"maxDynamicOffset": crosshairMaxDynamicOffset
+	}
+	
 
 
 # Used to update the crosshairs looks
@@ -203,6 +318,9 @@ func updateCrosshair() -> void:
 	
 	# Queue a redraw for the center dot
 	queue_redraw()
+	
+	# Update the values of the config dictionary
+	updateCrosshairConfig()
 
 
 func _draw() -> void:

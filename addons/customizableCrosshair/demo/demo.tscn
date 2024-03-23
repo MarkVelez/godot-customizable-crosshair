@@ -364,7 +364,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_eund3")
 
 [node name="optionalSettingsTitle" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Optional settings
+text = "Optional Settings
 "
 
 [node name="HSeparator4" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
@@ -419,7 +419,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_eund3")
 
 [node name="weaponSettingsTitle" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Weapon settings"
+text = "Weapon Settings"
 
 [node name="HSeparator2" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -542,6 +542,41 @@ max_value = 1000.0
 alignment = 1
 custom_arrow_step = 1.0
 
+[node name="spacer4" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+theme_override_styles/separator = SubResource("StyleBoxEmpty_eund3")
+
+[node name="crosshairConfigTitle" type="Label" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Crosshair Config"
+
+[node name="HSeparator3" type="HSeparator" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="crosshairConfig" type="VBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairConfig"]
+layout_mode = 2
+
+[node name="generate" type="Button" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairConfig/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Generate"
+
+[node name="apply" type="Button" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairConfig/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Apply"
+
+[node name="crosshairConfigText" type="TextEdit" parent="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairConfig"]
+unique_name_in_owner = true
+layout_mode = 2
+wrap_mode = 1
+scroll_fit_content_height = true
+caret_blink = true
+
 [node name="crosshairArea" type="CenterContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -585,5 +620,7 @@ size_flags_vertical = 4
 [connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/recoverySpeed/recoverySpeedValue" to="." method="_on_recovery_speed_value_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/rpm/rpmSlider" to="." method="_on_rpm_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/weaponSettings/rpm/rpmValue" to="." method="_on_rpm_value_value_changed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairConfig/HBoxContainer/generate" to="." method="_on_generate_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/settings/MarginContainer/ScrollContainer/MarginContainer/VBoxContainer/crosshairConfig/HBoxContainer/apply" to="." method="_on_apply_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/HBoxContainer/crosshairArea" to="." method="_on_crosshair_area_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/HBoxContainer/crosshairArea" to="." method="_on_crosshair_area_mouse_exited"]

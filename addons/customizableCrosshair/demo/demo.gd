@@ -19,6 +19,11 @@ var mouseInPreviewArea: bool
 
 func _ready():
 	# Assign inital values to the settings
+	updateValues()
+	%crosshairConfigText.text = crosshair.getConfigString()
+
+
+func updateValues():
 	%thicknessValue.value = crosshair.crosshairThickness
 	%sizeValue.value = crosshair.crosshairSize
 	%gapValue.value = crosshair.crosshairGap
@@ -285,3 +290,12 @@ func _on_horizontal_lines_position_value_value_changed(value):
 	crosshair.crosshairHorizontalLinesPosition = value
 	%horizontalLinesPositionSlider.value = value
 	crosshair.updateCrosshair()
+
+
+func _on_apply_pressed():
+	crosshair.parseConfigString(%crosshairConfigText.text)
+	updateValues()
+
+
+func _on_generate_pressed():
+	%crosshairConfigText.text = crosshair.getConfigString()
