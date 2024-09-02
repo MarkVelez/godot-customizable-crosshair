@@ -29,12 +29,12 @@ After these steps are performed the crosshair can be customized within the edito
 
 *Note that the crosshair will not be visible inside of the editor unless the `@tool` at the top of the script is uncommented. To update the looks of the crosshair inside of the editor, simply toggle the visibility of the crosshair scene.*
 
-Updating the crosshair's looks can be done with the help of `updateCrosshair()`. An example of how this could be used is included in the demo scene.
+Updating the crosshair's looks can be done with the help of `update_crosshair()`. An example of how this could be used is included in the demo scene.
 
 ### Dynamic crosshair
 
-The static offset of the crosshair can be adjusted with `updateStaticOffset()`.
+The static offset of the crosshair can be adjusted with `update_static_offset()`.
 
-As for the dynamic offset, that can be updated with `updateDynamicOffset()`. This function expects a value in the range of 0 to 1.
+As for the dynamic offset, that can be updated with `update_dynamic_offset()`. This function expects a value in the range of 0 to 1.
 
 An example of how to use both of these functions can be seen in the demo scene.
