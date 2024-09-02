@@ -49,10 +49,14 @@ func _process(delta):
 	# Example accuracy
 	if inaccuracy > 0:
 		inaccuracy = move_toward(inaccuracy, 0.0, delta * accuracyRecoverySpeed)
-		crosshair.updateDynamicOffset(inaccuracy)
+		crosshair.update_dynamic_offset(inaccuracy)
 	
 	# Example full auto shooting without input actions
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) && mouseInPreviewArea && fullAuto:
+	if (
+		Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
+		and mouseInPreviewArea
+		and fullAuto
+	):
 		shoot()
 	
 	# Example shooting using input actions
@@ -69,12 +73,18 @@ func _process(delta):
 
 func _input(event):
 	# Example semi auto shooting without input actions
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and mouseInPreviewArea and not fullAuto:
+	if (
+		event is InputEventMouseButton
+		and event.button_index == MOUSE_BUTTON_LEFT
+		and event.is_pressed() 
+		and mouseInPreviewArea 
+		and not fullAuto
+	):
 		shoot()
 
 
 func shoot():
-	if inaccuracy < 1.0 && timeSinceLastShot >= timeBetweenShots:
+	if inaccuracy < 1.0 and timeSinceLastShot >= timeBetweenShots:
 		timeSinceLastShot = 0.0
 		if inaccuracy + inaccuracyPerShot > 1.0:
 			inaccuracy = 1.0
@@ -215,7 +225,7 @@ func _on_semi_pressed():
 	rpm = 500
 	timeBetweenShots = 60 / rpm
 	fullAuto = false
-	crosshair.updateStaticOffset(2)
+	crosshair.update_static_offset(2)
 	updateWeaponConfigs()
 
 
@@ -225,7 +235,7 @@ func _on_auto_pressed():
 	rpm = 600
 	timeBetweenShots = 60 / rpm
 	fullAuto = true
-	crosshair.updateStaticOffset(7)
+	crosshair.update_static_offset(7)
 	updateWeaponConfigs()
 
 
@@ -293,9 +303,9 @@ func _on_horizontal_lines_position_value_value_changed(value):
 
 
 func _on_apply_pressed():
-	crosshair.parseConfigString(%crosshairConfigText.text)
+	crosshair.parse_config_string(%crosshairConfigText.text)
 	updateValues()
 
 
 func _on_generate_pressed():
-	%crosshairConfigText.text = crosshair.getConfigString()
+	%crosshairConfigText.text = crosshair.get_config_string()

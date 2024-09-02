@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://02aah6xf723v"]
 
-[ext_resource type="Script" path="res://addons/customizableCrosshair/demo/demo.gd" id="1_4acq5"]
+[ext_resource type="Script" path="res://demo/demo.gd" id="1_4acq5"]
 [ext_resource type="PackedScene" uid="uid://iwlpamd20oko" path="res://addons/customizableCrosshair/crosshair/crosshair.tscn" id="2_vsqu2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svgu8"]
