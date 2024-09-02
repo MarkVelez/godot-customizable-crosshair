@@ -51,6 +51,9 @@ var crosshairConfig: Dictionary
 
 func _ready() -> void:
 	updateCrosshair()
+	# Runs only if @tool is uncommented
+	if Engine.is_editor_hint():
+		connect("hidden", updateCrosshair)
 
 
 # Checks if the received dictionary matches the crosshairConfig dictionary before overwriting it
@@ -332,8 +335,3 @@ func _draw() -> void:
 	if crosshairDot:
 		draw_rect(Rect2(-crosshairThickness / 2, -crosshairThickness / 2, crosshairThickness, crosshairThickness), crosshairColor)
 	
-	# Runs only if @tool is uncommented
-	if Engine.is_editor_hint():
-		# Used to update the crosshair when the visibility is toggled
-		if visibility_changed:
-			updateCrosshair()
