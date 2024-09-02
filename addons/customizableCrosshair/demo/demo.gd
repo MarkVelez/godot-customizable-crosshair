@@ -20,7 +20,7 @@ var mouseInPreviewArea: bool
 func _ready():
 	# Assign inital values to the settings
 	updateValues()
-	%crosshairConfigText.text = crosshair.getConfigString()
+	%crosshairConfigText.text = crosshair.get_config_string()
 
 
 func updateValues():
@@ -92,81 +92,81 @@ func updateWeaponConfigs():
 func _on_thickness_slider_value_changed(value):
 	crosshair.crosshairThickness = value
 	%thicknessValue.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_thickness_value_value_changed(value):
 	crosshair.crosshairThickness = value
 	%thicknessSlider.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_size_slider_value_changed(value):
 	crosshair.crosshairSize = value
 	%sizeValue.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_size_value_value_changed(value):
 	crosshair.crosshairSize = value
 	%sizeSlider.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_gap_slider_value_changed(value):
 	crosshair.crosshairGap = value
 	%gapValue.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_gap_value_value_changed(value):
 	crosshair.crosshairGap = value
 	%gapSlider.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_color_color_changed(color):
 	crosshair.crosshairColor = color
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_dot_toggled(toggled_on):
 	crosshair.crosshairDot = toggled_on
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_dynamic_toggled(toggled_on):
 	crosshair.crosshairDynamic = toggled_on
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_dynamic_max_slider_value_changed(value):
 	crosshair.crosshairMaxDynamicOffset = value
 	%dynamicMaxValue.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_dynamic_max_value_value_changed(value):
 	crosshair.crosshairMaxDynamicOffset = value
 	%dynamicMaxSlider.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_outline_toggled(toggled_on):
 	crosshair.crosshairOutline = toggled_on
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_outline_thickness_slider_value_changed(value):
 	crosshair.crosshairOutlineThickness = value
 	%outlineThicknessValue.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_outline_thickness_value_value_changed(value):
 	crosshair.crosshairOutlineThickness = value
 	%outlineThicknessSlider.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_crosshair_area_mouse_entered():
@@ -180,13 +180,13 @@ func _on_crosshair_area_mouse_exited():
 func _on_static_offset_slider_value_changed(value):
 	crosshair.crosshairStaticOffset = value
 	%staticOffsetValue.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_static_offset_value_value_changed(value):
 	crosshair.crosshairStaticOffset = value
 	%staticOffsetSlider.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_dynamic_offset_slider_value_changed(value):
@@ -243,53 +243,53 @@ func _on_rpm_value_value_changed(value):
 
 func _on_horizontal_lines_toggled(toggled_on):
 	crosshair.crosshairHorizontalLines = toggled_on
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_t_style_toggled(toggled_on):
 	crosshair.crosshairTStyle = toggled_on
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_line_style_item_selected(index):
 	crosshair.crosshairLineStyle = index
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_horizontal_lines_thickness_slider_value_changed(value):
 	crosshair.crosshairHorizontalLinesThickness = value
 	%horizontalLinesThicknessValue.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_horizontal_lines_thickness_value_value_changed(value):
 	crosshair.crosshairHorizontalLinesThickness = value
 	%horizontalLinesThicknessSlider.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_horizontal_lines_length_slider_value_changed(value):
 	crosshair.crosshairHorizontalLinesLength = value
 	%horizontalLinesLengthValue.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_horizontal_lines_length_value_value_changed(value):
 	crosshair.crosshairHorizontalLinesLength = value
 	%horizontalLinesLengthSlider.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_horizontal_lines_position_slider_value_changed(value):
 	crosshair.crosshairHorizontalLinesPosition = value
 	%horizontalLinesPositionValue.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_horizontal_lines_position_value_value_changed(value):
 	crosshair.crosshairHorizontalLinesPosition = value
 	%horizontalLinesPositionSlider.value = value
-	crosshair.updateCrosshair()
+	crosshair.update_crosshair()
 
 
 func _on_apply_pressed():
